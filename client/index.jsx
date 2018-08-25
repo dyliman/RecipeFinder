@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import $ from 'jquery';
+import $ from 'jquery';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class App extends React.Component {
       cookingTimeMin: 0,
       cookingTimeMax: 60,
       excluded: '', // List of all ingredients? 
+      ingredients: [],
     }
   }
 
@@ -22,29 +23,46 @@ class App extends React.Component {
     this.setState(settingState)
   }
 
+  handleDietSelect(event) { // for changing diet type
+    this.setState({diet: event.target.value})
+  }
+
+  handleAddIngredientButton(event) { // adds the ingredients to list
+    let list = this.state.ingredients
+    list.push($('.ingredientsList').val())
+    this.setState({ingredients: list})
+  }
+
+  handleSearchForRecipesButton(event) {
+    // make a ajax call for recipes here
+  }
+
   render() {
     return(
       <div className="searchPage">Search
+
         <div className="ingredientsComponent">
           Ingredients:
           <div>
-            <input className="ingredientsList"></input>
-            <button className="ingredientListAdd">Add Ingredient</button>
+            <input type="text" className="ingredientsList"></input>
+            <button className="ingredientListAdd" onClick={this.handleAddIngredientButton.bind(this)}>Add Ingredient</button>
           </div>
         </div>
+
         <div className="dietComponent">
           Diet Type:
           <div>
-          <select className="dietInput">
-            <option name="balanced">Balanced</option>
-            <option name="high-protein">High Protein</option>
-            <option name="high-fiber">High Fiber</option>
-            <option name="low-fat">Low Fat</option>
-            <option name="low-carb">Low Carb</option>
-            <option name="low-sodium">Low Sodium</option>
+          <select className="dietInput" onChange={this.handleDietSelect.bind(this)}>
+            <option value="balanced">Balanced</option>
+            <option value="high-protein">High Protein</option>
+            <option value="high-fiber">High Fiber</option>
+            <option value="low-fat">Low Fat</option>
+            <option value="low-carb">Low Carb</option>
+            <option value="low-sodium">Low Sodium</option>
           </select>
           </div>
         </div>
+
         <div className="caloriesComponent">
           Calorie Range:
           <div>
@@ -52,6 +70,7 @@ class App extends React.Component {
           <input type="number" min="0" name="caloriesMax" className="caloriesMaxInput" onChange={this.handleInputChange.bind(this)}></input>
           </div>
         </div>
+
         <div className="cookingTimeComponent">
           Cooking Time:
           <div>
@@ -59,9 +78,11 @@ class App extends React.Component {
           <input type="number" min="0" name="cookingTimeMax" className="cookingTimeMaxInput" onChange={this.handleInputChange.bind(this)}></input>
           </div>
         </div>
+
         <div>
-          <button>Search!</button>
+          <button className="searchForRecipes" onClick="handleSearchForRecipesButton">Search!</button>
         </div>
+
       </div>
     )
   }

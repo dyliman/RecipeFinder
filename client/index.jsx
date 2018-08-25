@@ -17,9 +17,10 @@ class App extends React.Component {
   }
 
   handleInputChange(event) { // for cooking time and calories
-
+    let settingState = {}
+    settingState[event.target.getAttribute('name')] = event.target.value
+    this.setState(settingState)
   }
-
 
   render() {
     return(
@@ -47,15 +48,15 @@ class App extends React.Component {
         <div className="caloriesComponent">
           Calorie Range:
           <div>
-          <input type="number" min="0" name="caloriesMin" className="caloriesMinInput"></input>
-          <input type="number" min="0" name="caloriesMax" className="caloriesMaxInput"></input>
+          <input type="number" min="0" name="caloriesMin" className="caloriesMinInput" onChange={this.handleInputChange.bind(this)}></input>
+          <input type="number" min="0" name="caloriesMax" className="caloriesMaxInput" onChange={this.handleInputChange.bind(this)}></input>
           </div>
         </div>
         <div className="cookingTimeComponent">
           Cooking Time:
           <div>
-          <input type="number" min="0" name="cookingTimeMin" className="cookingTimeMinInput"></input>
-          <input type="number" min="0" name="cookingTimeMax" className="cookingTimeMaxInput"></input>
+          <input type="number" min="0" name="cookingTimeMin" className="cookingTimeMinInput" onChange={this.handleInputChange.bind(this)}></input>
+          <input type="number" min="0" name="cookingTimeMax" className="cookingTimeMaxInput" onChange={this.handleInputChange.bind(this)}></input>
           </div>
         </div>
         <div>

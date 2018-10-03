@@ -1,0 +1,170 @@
+body {
+  background: linear-gradient(to bottom, #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 67%,#005700 83%,#002400 100%);
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family:fantasy;
+}
+
+.optional {
+  font-weight: italic;
+}
+
+.mainPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mainTitle {
+  display: flex;
+  justify-content: center;
+  font-size: 36px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.searchPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.SearchOptionSide {
+  background-color: #aef68e;
+  padding: 20px;
+  /*border-radius: 20px;*/
+  height: 30%;
+}
+
+.searchOptions {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.searchDiv {
+  padding-top:15px;
+  text-align: center;
+}
+.searchForRecipes {
+    background-color: #4caf50ad;
+    border: none;
+    padding: 10px 40px;
+    font-size: 18px;
+    font-family: fantasy;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.searchForRecipes:hover {
+    background-color: #4da54d;
+}
+
+.searchForRecipes:focus {
+  outline:none;
+  background-color: #4da54d;
+  -webkit-box-shadow: inset 0px 0px 20px #387c38;
+     -moz-box-shadow: inset 0px 0px 20px #387c38;
+          box-shadow: inset 0px 0px 20px #387c38;
+}
+
+
+
+.searchColumn {
+  width:90%;
+}
+
+.queryComponent, .ingredientsComponent, .dietComponent, .caloriesComponent, .cookingTimeComponent, .searchForRecipes {
+  margin: 10px;
+}
+
+/* The input element for excluded ingredients */
+.ingredientsList {
+  margin-right: 5px;
+}
+
+.UserIngredientsSide {
+  display: flex;
+  background-color: #BBE5BB;
+  padding: 5px;
+  /*border-radius: 20px;*/
+/*  width: 40%;
+*/  flex-direction: column;
+}
+
+.ListOfIngredientsTitle {
+  /*display: flex;*/
+  justify-content: center;
+}
+
+.ListOfIngredients {
+  overflow: auto;
+  height: 90px;
+  font-size: 13px;
+}
+
+.ListOfIngredients ul {
+  padding: 0px 5px;
+}
+
+/*.ListOfIngredients .ul li:nth-child(3n+1) {
+  clear: both;
+}*/
+
+.currentIngredient {
+  /*margin-right: 8px;*/
+  list-style-type: none;
+  float: left;
+  padding: 1.5px 15px
+}
+
+.recipeList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipeTitle {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.currentRecipe {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  margin: 5px;
+  background-color: #BBE5BB;
+  width: 80%;
+  border-radius: 20px;
+}
+
+.recipeInformation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.recipeDetails {
+  display: flex;
+  flex-direction: row;
+}
+
+.recipeImage {
+  /*width: 100px;*/
+  height: 100px;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.recipeName {
+  font-size: 20px;
+  color: Green;
+}
+
+.recipeCalories, .recipeTime, .recipeYield {
+  padding-right: 15px;
+}
